@@ -1,0 +1,24 @@
+.main-container {
+  .bar {
+    fill: url(#bar-gradient);
+    shape-rendering: crispEdges;
+    transition: filter 0.2s ease, opacity 0.2s ease;
+
+    &:hover {
+      filter: drop-shadow(3px 4px 6px rgba(0, 0, 0, 0.4));
+    }
+  }
+
+  .axis {
+    line {
+      stroke: #707070;
+      &.tick {
+        stroke: #e0e0e0;
+      }
+    }
+
+    text {
+      fill: #707070;
+    }
+  }
+}
