@@ -1,4 +1,4 @@
-import type { CountryData } from '../Chart/types';
+import type { CountryData } from '../../types';
 
 export type CountryFilterProps = {
   countries: CountryData[];

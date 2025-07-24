@@ -1,12 +1,8 @@
 import { scaleBand, scaleLinear } from 'd3-scale';
 import { max } from 'd3-array';
-import type { ChartProps } from './types';
+import type { CountryData } from '../BarChart/types';
 
-export function getScales(
-  data: ChartProps['data'],
-  width: number,
-  height: number,
-) {
+export function getScales(data: CountryData[], width: number, height: number) {
   const padding = 0.1;
 
   const xScale = scaleBand()

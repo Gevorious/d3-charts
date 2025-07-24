@@ -1,4 +1,4 @@
-import type { CountryData } from '../Chart/types';
+import type { CountryData } from '../Charts/BarChart/types';
 
 export type AddFormProps = {
   show: boolean;
