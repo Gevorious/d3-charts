@@ -28,7 +28,7 @@ const ChoroplethMapPage = () => {
 
   return (
     <div className="container-large">
-      <h1 className="page-title">GDP per Capita(1975 - 2024) - Chart</h1>
+      {/* <h1 className="page-title">GDP per Capita(1975 - 2024) - Chart</h1> */}
       <div className="choropleth-page">
         <svg width={width} height={height}>
           <WorldMap

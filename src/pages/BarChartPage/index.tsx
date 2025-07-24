@@ -29,7 +29,7 @@ const BarChartPage = () => {
 
   return (
     <div className="container bar-chart">
-      <h1 className="page-title">Population by Country - Chart</h1>
+      {/* <h1 className="page-title">Population by Country - Chart</h1> */}
       <div ref={containerRef} style={{ width: '100%', height: 'auto' }}>
         {dimensions && (
           <BarChart
