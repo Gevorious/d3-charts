@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { BarChart } from '@components/Charts';
-import CountryFilter from '@components/Charts/BarChart/_partials/CountryFilter';
-import type { CountryData } from '@components/Charts/BarChart/types';
-import { useResizeObserver } from '@hooks/useResizeObserver';
+import { BarChart } from '../../components/Charts';
+import CountryFilter from '../../components/Charts/BarChart/_partials/CountryFilter';
+import type { CountryData } from '../../components/Charts/BarChart/types';
+import { useResizeObserver } from '../../hooks/useResizeObserver';
 import { ascending, descending } from 'd3';
-import { SortIcon } from '@components/SortIcon';
+import { SortIcon } from '../../components/SortIcon';
 import './styles.scss';
 import chartData from './chartData/bar_chart_data.json';
 

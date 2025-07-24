@@ -1,4 +1,4 @@
-import { WorldGeoData } from '@/components/WorldMap/types';
+import { WorldGeoData } from '../../components/WorldMap/types';
 import { GeoProjection } from 'd3';
 
 export type GDPScatterPlotProps = {

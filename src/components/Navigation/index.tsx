@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import data from '@data/navigation.json';
+import data from '../../data/navigation.json';
 import './styles.scss';
 import { NavItem } from './types';
 

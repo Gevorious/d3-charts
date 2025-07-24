@@ -1,10 +1,10 @@
-import WorldMap from '@/components/WorldMap';
+import WorldMap from '../../components/WorldMap';
 import GDPScatterPlot from './_partials/GDPScatterPlot';
 import { geoNaturalEarth1 } from 'd3';
 import worldAtlas from 'world-atlas/countries-110m.json';
 import type { Topology } from 'topojson-specification';
 import { feature } from 'topojson-client';
-import { WorldGeoData } from '@/components/WorldMap/types';
+import { WorldGeoData } from '../../components/WorldMap/types';
 import './styles.scss';
 
 const width = 1400;

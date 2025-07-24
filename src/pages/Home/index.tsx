@@ -1,4 +1,4 @@
-import DashboardCard from '@components/DashboardCard';
+import DashboardCard from '../../components/DashboardCard';
 import { FaChartBar, FaMapMarkedAlt } from 'react-icons/fa';
 import './styles.scss';
 
