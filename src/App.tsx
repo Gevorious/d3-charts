@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from '@pages/Home';
+import Home from './pages/Home';
 import BarChartPage from './pages/BarChartPage';
 import Layout from './components/Layout';
 import ChoroplethMapPage from './pages/ChoroplethMapPage';
