@@ -5,7 +5,7 @@ export type CountryData = {
   population: number;
 };
 
-export type ChartProps = {
+export type BarChartProps = {
   data: CountryData[];
   width?: number;
   height?: number;
@@ -22,7 +22,7 @@ export type MarkProps = {
 };
 
 export type BottomAxisProps = {
-  selected: ChartProps['selected'];
+  selected: BarChartProps['selected'];
   height: number;
   xScale: ScaleBand<string>;
 };

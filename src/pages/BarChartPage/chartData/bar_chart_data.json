@@ -1,0 +1,14 @@
+{
+  "countries": [
+    { "country": "Brazil", "population": 212812405 },
+    { "country": "USA", "population": 347275807 },
+    { "country": "Egypt", "population": 118365995 },
+    { "country": "China", "population": 1416096094 },
+    { "country": "Iran", "population": 92417681 },
+    { "country": "Ukraine", "population": 38980376 },
+    { "country": "Germany", "population": 84075075 },
+    { "country": "India", "population": 1463865525 },
+    { "country": "Canada", "population": 40126723 },
+    { "country": "France", "population": 66650804 }
+  ]
+}

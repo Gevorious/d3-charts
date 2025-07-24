@@ -1,0 +1,19 @@
+.map {
+  .coord-sphere {
+    fill: #f0f8ff;
+  }
+
+  .marks {
+    fill: #b8b8b7;
+  }
+
+  .interiors {
+    fill: none;
+    stroke: #ffffff;
+  }
+
+  .graticule {
+    fill: none;
+    stroke: #cbdcf3;
+  }
+}

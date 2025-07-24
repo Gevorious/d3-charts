@@ -1,14 +1,19 @@
-import type { ChartProps } from './types';
-import './styles.scss';
-import { getScales } from './scales';
 import Mark from './_partials/Mark';
 import Gradient from './_partials/Gradient';
 import BottomAxis from './_partials/BottomAxis';
 import LeftAxis from './_partials/LeftAxis';
+import { getScales } from './scales';
+import type { BarChartProps } from './types';
+import './styles.scss';
 
 const margins = { bottom: 60, top: 40, left: 60, right: 40 };
 
-const Chart = ({ data, width = 800, height = 600, selected }: ChartProps) => {
+const BarChart = ({
+  data,
+  width = 800,
+  height = 600,
+  selected,
+}: BarChartProps) => {
   const innerWidth = width - margins.left - margins.right;
   const innerHeight = height - margins.top - margins.bottom;
 
@@ -38,4 +43,4 @@ const Chart = ({ data, width = 800, height = 600, selected }: ChartProps) => {
   );
 };
 
-export default Chart;
+export default BarChart;
