@@ -4,10 +4,10 @@ import './styles.scss';
 
 const dashboardItems = [
   {
-    title: 'GDP Map',
+    title: 'GDP per Capita Map',
     description: 'Explore GDP per capita on a world map',
     icon: <FaMapMarkedAlt size={32} />,
-    url: '/choropleth-map',
+    url: '/bubble-map',
   },
   {
     title: 'Population Chart',

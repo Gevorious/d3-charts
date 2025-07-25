@@ -1,7 +1,7 @@
 import { csv, DSVRowArray, geoCentroid } from 'd3';
 import { useEffect, useState } from 'react';
 import { GDPScatterPlotProps } from '../types';
-import YearSlider from './YearSlider';
+import YearSlider from '../../../components/YearSlider';
 
 const getCoords = (countries: GDPScatterPlotProps['countries']) => {
   const map: Record<string, [number, number]> = {};
@@ -49,7 +49,7 @@ const GDPScatterPlot = ({
           if (!center) return null;
 
           const [x, y] = projection(center)!;
-          let r = Math.sqrt(value || 3000) * 0.06;
+          let r = Math.sqrt(value || 3000) * 0.07;
 
           const tooltip = `${d['Country Name']}: ${
             isNaN(value) ? 'N/A' : '$' + value.toFixed(2)

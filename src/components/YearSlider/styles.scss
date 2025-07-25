@@ -1,0 +1,27 @@
+.slider {
+  .axis {
+    stroke: #ccc;
+    stroke-width: 4;
+  }
+
+  .tick {
+    line {
+      stroke: #888;
+    }
+
+    text {
+      font-size: 10px;
+      text-anchor: middle;
+    }
+  }
+
+  .label {
+    text-anchor: middle;
+    font-size: 10px;
+  }
+
+  .handle {
+    fill: #007bff;
+    cursor: pointer;
+  }
+}

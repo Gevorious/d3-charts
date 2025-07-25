@@ -8,8 +8,20 @@ export type WorldGeoData = {
   interiors: ReturnType<typeof mesh>;
 };
 
-export type WorldMapProps = {
+export type MapData<T> = {
+  data: T[];
+  config: {
+    valueField: keyof T;
+    tooltipText?: string;
+  };
+};
+
+export type BaseProps = {
   projection: GeoProjection;
   topology: Topology;
   countries: WorldGeoData['countries'];
 };
+
+export type WorldMapProps<T = unknown> =
+  | (BaseProps & MapData<T>)
+  | (BaseProps & { data?: undefined; config?: undefined });

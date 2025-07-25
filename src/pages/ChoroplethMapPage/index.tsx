@@ -1,10 +1,11 @@
-import WorldMap from '../../components/WorldMap';
-import GDPScatterPlot from './_partials/GDPScatterPlot';
-import { geoNaturalEarth1 } from 'd3';
 import worldAtlas from 'world-atlas/countries-110m.json';
 import type { Topology } from 'topojson-specification';
 import { feature } from 'topojson-client';
 import { WorldGeoData } from '../../components/WorldMap/types';
+import { csv, DSVRowArray, geoNaturalEarth1 } from 'd3';
+import WorldMap from '../../components/WorldMap';
+import { useEffect, useState } from 'react';
+import YearSlider from '../../components/YearSlider';
 import './styles.scss';
 
 const width = 1400;
@@ -15,7 +16,12 @@ const margins = {
 
 const innerHeight = height - margins.bottom;
 
+const yearRange: [number, number] = [1975, 2024];
+
 const ChoroplethMapPage = () => {
+  const [data, setData] = useState<DSVRowArray<string>>();
+  const [year, setYear] = useState<number>(yearRange[1]);
+
   const topology = worldAtlas as unknown as Topology;
   const countries = feature(
     topology,
@@ -26,21 +32,29 @@ const ChoroplethMapPage = () => {
     countries,
   );
 
+  useEffect(() => {
+    csv('/charts/data/world_gdp_per_capita.csv').then((data) => {
+      setData(data);
+    });
+  }, []);
+
   return (
     <div className="container-large">
-      {/* <h1 className="page-title">GDP per Capita(1975 - 2024) - Chart</h1> */}
-      <div className="choropleth-page">
-        <svg width={width} height={height}>
+      <div className="choropleth-map-page">
+        <svg width={width} height={height + 20}>
           <WorldMap
             projection={projection}
             topology={topology}
             countries={countries}
+            data={data ?? []}
+            config={{ valueField: year?.toString()! }}
           />
-          <GDPScatterPlot
-            projection={projection}
-            countries={countries}
+          <YearSlider
+            onChange={setYear}
+            height={height}
             width={width}
-            height={height - 20}
+            yearRange={yearRange}
+            year={year || yearRange[1]}
           />
         </svg>
       </div>

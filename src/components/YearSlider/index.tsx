@@ -1,5 +1,7 @@
 import { drag, scaleLinear, select, ticks } from 'd3';
 import React, { useEffect, useRef } from 'react';
+import { YearSliderProps } from './types';
+import './styles.scss';
 
 const margin = { left: 20, right: 20 };
 
@@ -9,13 +11,7 @@ const YearSlider = ({
   yearRange,
   onChange,
   year,
-}: {
-  width: number;
-  height: number;
-  yearRange: [number, number];
-  onChange: (year: number) => void;
-  year: number;
-}) => {
+}: YearSliderProps) => {
   const groupRef = useRef<SVGGElement>(null);
 
   const xScale = scaleLinear()
