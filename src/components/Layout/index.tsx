@@ -9,7 +9,7 @@ const Layout = ({ children }: LayoutProps) => {
         <Navigation />
       </header>
       <main className="main">{children}</main>
-      <footer className="footer">© 2025 My App</footer>
+      <footer className="footer">© 2025 Data Visualization</footer>
     </div>
   );
 };
