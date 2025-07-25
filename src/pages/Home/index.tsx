@@ -4,8 +4,8 @@ import './styles.scss';
 
 const dashboardItems = [
   {
-    title: 'GDP per Capita Map',
-    description: 'Explore GDP per capita on a world map',
+    title: 'GDP per Capita - Bubble Map',
+    description: 'Explore world countries GDP per capita on a bubble map',
     icon: <FaMapMarkedAlt size={32} />,
     url: '/bubble-map',
   },
@@ -14,6 +14,12 @@ const dashboardItems = [
     description: 'Compare populations of countries',
     icon: <FaChartBar size={32} />,
     url: '/bar-chart',
+  },
+  {
+    title: 'GDP per Capita - Choropleth Map',
+    description: 'Explore world countries GDP per capita on a choropleth map',
+    icon: <FaChartBar size={32} />,
+    url: '/choropleth-map',
   },
 ];
 
