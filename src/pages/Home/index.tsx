@@ -1,5 +1,5 @@
 import DashboardCard from '../../components/DashboardCard';
-import { FaChartBar, FaMapMarkedAlt } from 'react-icons/fa';
+import { FaChartBar, FaGlobeEurope, FaMapMarkedAlt } from 'react-icons/fa';
 import './styles.scss';
 
 const dashboardItems = [
@@ -18,7 +18,7 @@ const dashboardItems = [
   {
     title: 'GDP per Capita - Choropleth Map',
     description: 'Explore world countries GDP per capita on a choropleth map',
-    icon: <FaChartBar size={32} />,
+    icon: <FaGlobeEurope size={32} />,
     url: '/choropleth-map',
   },
 ];
