@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
 import { geoPath, geoGraticule } from 'd3-geo';
-import { mesh } from 'topojson-client';
 import { WorldMapProps } from './types';
-import './styles.scss';
-import { max, min, scaleQuantize } from 'd3';
+import { getGeoData, getColorScale, getDataMap } from './helpers';
 import { blueRange } from './constants';
+import { Feature, Geometry } from 'geojson';
+import './styles.scss';
 
 const WorldMap = <T extends object>({
   projection,
@@ -15,35 +15,17 @@ const WorldMap = <T extends object>({
 }: WorldMapProps<T>) => {
   const graticule = useMemo(() => geoGraticule(), []);
 
-  const geoData = useMemo(() => {
-    if (!topology || !countries) return null;
-    const interiors = mesh(
-      topology,
-      topology.objects.countries as any,
-      (a: any, b: any) => a !== b,
-    );
-    return { countries, interiors };
-  }, [topology, countries]);
+  const geoData = useMemo(
+    () => getGeoData(topology, countries),
+    [topology, countries],
+  );
 
   const colorScale = useMemo(() => {
     if (!data || !config) return null;
-    const values = data
-      .map((d: any) => +d[config.valueField])
-      .filter((v) => !isNaN(v));
-    if (!values.length) return null;
-    return scaleQuantize<string>()
-      .domain([min(values)!, max(values)!])
-      .range(blueRange);
+    return getColorScale(data, config.valueField as string, blueRange);
   }, [data, config]);
 
-  const dataMap = useMemo(() => {
-    if (!data) return null;
-    const map = new Map();
-    data.forEach((d: any) => {
-      map.set(d.id, d);
-    });
-    return map;
-  }, [data]);
+  const dataMap = useMemo(() => (data ? getDataMap(data) : null), [data]);
 
   const pathGenerator = useMemo(() => geoPath(projection), [projection]);
 
@@ -53,7 +35,7 @@ const WorldMap = <T extends object>({
     <g className="map">
       <path className="coord-sphere" d={pathGenerator({ type: 'Sphere' })!} />
       <path className="graticule" d={pathGenerator(graticule())!} />
-      {geoData.countries.features.map((feature, i) => {
+      {geoData.countries.features.map((feature: Feature<Geometry, any>) => {
         const dataItem = dataMap?.get(feature.id);
         const value =
           dataItem && config?.valueField
@@ -66,17 +48,20 @@ const WorldMap = <T extends object>({
         return (
           <path
             className="marks"
-            key={i}
+            key={feature.id}
             d={pathGenerator(feature)!}
             fill={data ? color : '#d6d6d3'}
           >
-            <title>
-              {`${feature.properties?.name}: ${
-                value === undefined || value === ''
-                  ? 'N/A'
-                  : '$' + Number(value).toFixed(2)
-              }`}
-            </title>
+            {config?.showTooltip && (
+              <title>
+                {config?.tooltipText ||
+                  `${feature.properties?.name}: ${
+                    value === undefined || value === ''
+                      ? 'N/A'
+                      : '$' + Number(value).toFixed(2)
+                  }`}
+              </title>
+            )}
           </path>
         );
       })}

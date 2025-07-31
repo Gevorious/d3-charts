@@ -5,15 +5,12 @@ import worldAtlas from 'world-atlas/countries-110m.json';
 import type { Topology } from 'topojson-specification';
 import { feature } from 'topojson-client';
 import { WorldGeoData } from '../../components/WorldMap/types';
+import { bubbleMapConfig } from './config';
 import './styles.scss';
 
-const width = 1400;
-const height = 730;
-const margins = {
-  bottom: 50,
-};
+const { width, height, margins } = bubbleMapConfig;
 
-const innerHeight = height - margins.bottom;
+const innerHeight = height - (margins?.bottom || 0);
 
 const BubbleMapPage = () => {
   const topology = worldAtlas as unknown as Topology;

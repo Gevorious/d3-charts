@@ -6,17 +6,12 @@ import { csv, DSVRowArray, geoNaturalEarth1 } from 'd3';
 import WorldMap from '../../components/WorldMap';
 import { useEffect, useState } from 'react';
 import YearSlider from '../../components/YearSlider';
+import { choroplethConfig } from './config';
 import './styles.scss';
 
-const width = 1400;
-const height = 730;
-const margins = {
-  bottom: 50,
-};
+const { width, height, margins, yearRange } = choroplethConfig;
 
-const innerHeight = height - margins.bottom;
-
-const yearRange: [number, number] = [1975, 2024];
+const innerHeight = height - (margins?.bottom || 0);
 
 const ChoroplethMapPage = () => {
   const [data, setData] = useState<DSVRowArray<string>>();
@@ -47,7 +42,7 @@ const ChoroplethMapPage = () => {
             topology={topology}
             countries={countries}
             data={data ?? []}
-            config={{ valueField: year?.toString()! }}
+            config={{ valueField: year?.toString()!, showTooltip: true }}
           />
           <YearSlider
             onChange={setYear}

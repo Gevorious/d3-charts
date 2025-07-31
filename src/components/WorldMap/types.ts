@@ -13,6 +13,7 @@ export type MapData<T> = {
   config: {
     valueField: keyof T;
     tooltipText?: string;
+    showTooltip?: boolean;
   };
 };
 

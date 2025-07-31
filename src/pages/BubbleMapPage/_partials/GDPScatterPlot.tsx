@@ -1,23 +1,11 @@
-import { csv, DSVRowArray, geoCentroid } from 'd3';
+import { csv, DSVRowArray } from 'd3';
 import { useEffect, useState } from 'react';
 import { GDPScatterPlotProps } from '../types';
 import YearSlider from '../../../components/YearSlider';
+import { getCoords } from '../helpers';
+import { bubbleMapConfig } from '../config';
 
-const getCoords = (countries: GDPScatterPlotProps['countries']) => {
-  const map: Record<string, [number, number]> = {};
-
-  countries.features.forEach((f) => {
-    const code = f.id;
-    const [lng, lat] = geoCentroid(f);
-    if (code && lng && lat) {
-      map[code] = [lng, lat];
-    }
-  });
-
-  return map;
-};
-
-const yearRange: [number, number] = [1975, 2024];
+const { yearRange } = bubbleMapConfig;
 
 const GDPScatterPlot = ({
   projection,
