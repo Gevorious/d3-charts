@@ -1,39 +1,46 @@
 .add-country-form {
   width: 100%;
   background-color: #f0f2ff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   border-radius: 6px;
   transition: background-color 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   padding: 6px 10px;
+  text-align: end;
 
-  input {
-    padding: 2px 4px;
-    border: 1px solid #d0d4ff;
-    border-radius: 4px;
-    font-size: 14px;
-    background-color: #fff;
-    color: #333;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  .form-inputs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 10px;
 
-    &.error {
-      border: 1px solid #ad2604;
-    }
+    input {
+      padding: 2px 4px;
+      border: 1px solid #d0d4ff;
+      border-radius: 4px;
+      font-size: 14px;
+      background-color: #fff;
+      color: #333;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
-    &::placeholder {
-      color: #aaa;
-    }
+      &.error {
+        border: 1px solid #ad2604;
+      }
 
-    &:focus {
-      border-color: #1f3bff;
-      box-shadow: 0 0 0 2px rgba(31, 59, 255, 0.15);
-      outline: none;
+      &::placeholder {
+        color: #aaa;
+      }
+
+      &:focus {
+        border-color: #1f3bff;
+        box-shadow: 0 0 0 2px rgba(31, 59, 255, 0.15);
+        outline: none;
+      }
     }
   }
 
   button {
+    display: inline-block;
     padding: 8px 16px;
     background-color: #1f3bff;
     color: #fff;

@@ -15,6 +15,11 @@ const sortBy = {
   desc: descending,
 };
 
+const sortByLabel = {
+  asc: 'Ascending',
+  desc: 'Descending',
+};
+
 const BarChartPage = () => {
   const [data, setData] = useState<CountryData[]>(countries);
   const [containerRef, dimensions] = useResizeObserver<HTMLDivElement>();
@@ -39,23 +44,30 @@ const BarChartPage = () => {
           />
         )}
       </div>
-      <SortIcon
-        direction={sortingType}
-        onClick={() =>
-          setSortingType((prev) => (prev === 'asc' ? 'desc' : 'asc'))
-        }
-      />
-      <CountryFilter
-        onChange={(selectedCountries) => {
-          setSelected(selectedCountries);
-        }}
-        countries={sortedData}
-        selected={selected}
-        addNewRow={(data: CountryData) => {
-          setData((prev) => [...prev, data]);
-          setSelected((prev) => [...prev, data.country]);
-        }}
-      />
+      <div className="chart-info">
+        <div className="sort">
+          <span>
+            <SortIcon
+              direction={sortingType}
+              onClick={() =>
+                setSortingType((prev) => (prev === 'asc' ? 'desc' : 'asc'))
+              }
+            />
+          </span>
+          <span>{sortingType ? sortByLabel[sortingType] : 'Unsorted'}</span>
+        </div>
+        <CountryFilter
+          onChange={(selectedCountries) => {
+            setSelected(selectedCountries);
+          }}
+          countries={sortedData}
+          selected={selected}
+          addNewRow={(data: CountryData) => {
+            setData((prev) => [...prev, data]);
+            setSelected((prev) => [...prev, data.country]);
+          }}
+        />
+      </div>
     </div>
   );
 };

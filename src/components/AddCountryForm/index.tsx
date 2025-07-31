@@ -21,15 +21,17 @@ const AddCountryForm = ({ show, onSubmit }: AddFormProps) => {
         input.classList.add('error');
       }}
     >
-      <input type="text" name="country" placeholder="Country" required />
-      <input
-        type="number"
-        name="population"
-        placeholder="Population"
-        min="1"
-        step="1"
-        required
-      />
+      <div className="form-inputs">
+        <input type="text" name="country" placeholder="Country" required />
+        <input
+          type="number"
+          name="population"
+          placeholder="Population"
+          min="1"
+          step="1"
+          required
+        />
+      </div>
       <button type="submit">Add Country</button>
     </form>
   ) : null;

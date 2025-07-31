@@ -6,7 +6,7 @@ import { getScales } from './scales';
 import type { BarChartProps } from './types';
 import './styles.scss';
 
-const margins = { bottom: 60, top: 40, left: 60, right: 40 };
+const margins = { bottom: 60, top: 20, left: 40, right: 40 };
 
 const BarChart = ({
   data,
