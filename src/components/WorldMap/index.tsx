@@ -48,7 +48,7 @@ const WorldMap = <T extends object>({
         return (
           <path
             className="marks"
-            key={feature.id}
+            key={feature.id || feature.properties.name}
             d={pathGenerator(feature)!}
             fill={data ? color : '#d6d6d3'}
           >
