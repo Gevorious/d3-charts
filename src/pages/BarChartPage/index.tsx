@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { BarChart } from '../../components/Charts';
-import CountryFilter from '../../components/Charts/BarChart/_partials/CountryFilter';
+import { CountryFilter } from '../../components/Charts/BarChart';
+import Card from '../../components/Card';
 import type { CountryData } from '../../components/Charts/BarChart/types';
 import { useResizeObserver } from '../../hooks/useResizeObserver';
 import { ascending, descending } from 'd3';
@@ -33,41 +34,44 @@ const BarChartPage = () => {
     : data;
 
   return (
-    <div className="container bar-chart">
-      {/* <h1 className="page-title">Population by Country - Chart</h1> */}
-      <div ref={containerRef} style={{ width: '100%', height: 'auto' }}>
-        {dimensions && (
-          <BarChart
-            width={dimensions.width}
-            data={sortedData}
-            selected={selected}
-          />
-        )}
-      </div>
-      <div className="chart-info">
-        <div className="sort">
-          <span>
-            <SortIcon
-              direction={sortingType}
-              onClick={() =>
-                setSortingType((prev) => (prev === 'asc' ? 'desc' : 'asc'))
-              }
+    <div className="container">
+      <Card title="Population by Country">
+        <div className="bar-chart">
+          <div ref={containerRef} style={{ width: '100%', height: 'auto' }}>
+            {dimensions && (
+              <BarChart
+                width={dimensions.width}
+                data={sortedData}
+                selected={selected}
+              />
+            )}
+          </div>
+          <div className="chart-info">
+            <div className="sort">
+              <span>
+                <SortIcon
+                  direction={sortingType}
+                  onClick={() =>
+                    setSortingType((prev) => (prev === 'asc' ? 'desc' : 'asc'))
+                  }
+                />
+              </span>
+              <span>{sortingType ? sortByLabel[sortingType] : 'Unsorted'}</span>
+            </div>
+            <CountryFilter
+              onChange={(selectedCountries) => {
+                setSelected(selectedCountries);
+              }}
+              countries={sortedData}
+              selected={selected}
+              addNewRow={(data: CountryData) => {
+                setData((prev) => [...prev, data]);
+                setSelected((prev) => [...prev, data.country]);
+              }}
             />
-          </span>
-          <span>{sortingType ? sortByLabel[sortingType] : 'Unsorted'}</span>
+          </div>
         </div>
-        <CountryFilter
-          onChange={(selectedCountries) => {
-            setSelected(selectedCountries);
-          }}
-          countries={sortedData}
-          selected={selected}
-          addNewRow={(data: CountryData) => {
-            setData((prev) => [...prev, data]);
-            setSelected((prev) => [...prev, data.country]);
-          }}
-        />
-      </div>
+      </Card>
     </div>
   );
 };

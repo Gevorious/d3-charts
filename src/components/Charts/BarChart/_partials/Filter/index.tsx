@@ -1,13 +1,8 @@
 import './styles.scss';
-import AddCountryForm from '../../../../AddCountryForm';
-import type { CountryFilterProps } from './types';
+import AddCountryForm from '../AddCountryForm';
+import type { FilterProps } from './types';
 
-const CountryFilter = ({
-  countries,
-  selected,
-  onChange,
-  addNewRow,
-}: CountryFilterProps) => {
+const Filter = ({ countries, selected, onChange, addNewRow }: FilterProps) => {
   const toggle = (country: string) => {
     if (selected.includes(country)) {
       onChange(selected.filter((c) => c !== country));
@@ -38,4 +33,4 @@ const CountryFilter = ({
   );
 };
 
-export default CountryFilter;
+export default Filter;

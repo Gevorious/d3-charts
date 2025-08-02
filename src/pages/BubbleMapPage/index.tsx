@@ -1,5 +1,6 @@
 import WorldMap from '../../components/WorldMap';
 import GDPScatterPlot from './_partials/GDPScatterPlot';
+import Card from '../../components/Card';
 import { geoNaturalEarth1 } from 'd3';
 import worldAtlas from 'world-atlas/countries-110m.json';
 import type { Topology } from 'topojson-specification';
@@ -25,22 +26,23 @@ const BubbleMapPage = () => {
 
   return (
     <div className="container-large">
-      {/* <h1 className="page-title">GDP per Capita(1975 - 2024) - Chart</h1> */}
-      <div className="bubble-map-page">
-        <svg width={width} height={height}>
-          <WorldMap
-            projection={projection}
-            topology={topology}
-            countries={countries}
-          />
-          <GDPScatterPlot
-            projection={projection}
-            countries={countries}
-            width={width}
-            height={height - 20}
-          />
-        </svg>
-      </div>
+      <Card title="GDP per Capita(1975 - 2024)">
+        <div className="bubble-map-page">
+          <svg width={width} height={height}>
+            <WorldMap
+              projection={projection}
+              topology={topology}
+              countries={countries}
+            />
+            <GDPScatterPlot
+              projection={projection}
+              countries={countries}
+              width={width}
+              height={height - 20}
+            />
+          </svg>
+        </div>
+      </Card>
     </div>
   );
 };

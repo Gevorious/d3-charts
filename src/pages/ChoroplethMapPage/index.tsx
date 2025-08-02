@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import YearSlider from '../../components/YearSlider';
 import { choroplethConfig } from './config';
 import './styles.scss';
+import Card from '@/components/Card';
 
 const { width, height, margins, yearRange } = choroplethConfig;
 
@@ -35,24 +36,26 @@ const ChoroplethMapPage = () => {
 
   return (
     <div className="container-large">
-      <div className="choropleth-map-page">
-        <svg width={width} height={height + 20}>
-          <WorldMap
-            projection={projection}
-            topology={topology}
-            countries={countries}
-            data={data ?? []}
-            config={{ valueField: year?.toString()!, showTooltip: true }}
-          />
-          <YearSlider
-            onChange={setYear}
-            height={height}
-            width={width}
-            yearRange={yearRange}
-            year={year || yearRange[1]}
-          />
-        </svg>
-      </div>
+      <Card title="GDP per Capita(1975 - 2024)">
+        <div className="choropleth-map-page">
+          <svg width={width} height={height + 20}>
+            <WorldMap
+              projection={projection}
+              topology={topology}
+              countries={countries}
+              data={data ?? []}
+              config={{ valueField: year?.toString()!, showTooltip: true }}
+            />
+            <YearSlider
+              onChange={setYear}
+              height={height}
+              width={width}
+              yearRange={yearRange}
+              year={year || yearRange[1]}
+            />
+          </svg>
+        </div>
+      </Card>
     </div>
   );
 };

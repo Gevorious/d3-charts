@@ -32,7 +32,7 @@ const AddCountryForm = ({ show, onSubmit }: AddFormProps) => {
           required
         />
       </div>
-      <button type="submit">Add Country</button>
+      <button type="submit">Add</button>
     </form>
   ) : null;
 };
