@@ -38,7 +38,7 @@ const BubbleMapPage = () => {
               projection={projection}
               countries={countries}
               width={width}
-              height={height - 20}
+              height={height}
             />
           </svg>
         </div>

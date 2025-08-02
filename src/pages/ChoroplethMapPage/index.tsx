@@ -38,7 +38,7 @@ const ChoroplethMapPage = () => {
     <div className="container-large">
       <Card title="GDP per Capita(1975 - 2024)">
         <div className="choropleth-map-page">
-          <svg width={width} height={height + 20}>
+          <svg width={width} height={height}>
             <WorldMap
               projection={projection}
               topology={topology}
@@ -48,7 +48,7 @@ const ChoroplethMapPage = () => {
             />
             <YearSlider
               onChange={setYear}
-              height={height}
+              height={height - 20}
               width={width}
               yearRange={yearRange}
               year={year || yearRange[1]}

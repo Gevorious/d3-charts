@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { YearSliderProps } from './types';
 import './styles.scss';
 
-const margin = { left: 20, right: 20 };
+const margin = { left: 40, right: 40 };
 
 const YearSlider = ({
   width,
@@ -58,7 +58,7 @@ const YearSlider = ({
         const x = xScale(tick);
         return (
           <g key={tick} className="tick">
-            <line x1={x} x2={x} y1={height - 6} y2={height + 6} />
+            <line x1={x} x2={x} y1={height - 9} y2={height + 9} />
             <text x={x} y={height + 20}>
               {tick}
             </text>

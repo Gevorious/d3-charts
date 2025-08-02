@@ -58,7 +58,7 @@ const GDPScatterPlot = ({
       </g>
       <YearSlider
         onChange={setYear}
-        height={height}
+        height={height - 20}
         width={width}
         yearRange={yearRange}
         year={year || yearRange[1]}
