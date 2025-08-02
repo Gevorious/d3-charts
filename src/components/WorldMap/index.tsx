@@ -1,10 +1,11 @@
 import { useMemo } from 'react';
 import { geoPath, geoGraticule } from 'd3-geo';
 import { WorldMapProps } from './types';
-import { getGeoData, getColorScale, getDataMap } from './helpers';
-import { blueRange } from './constants';
+import { getGeoData, getDataMap } from './helpers';
+import { colorRange, thresholds } from './constants';
 import { Feature, Geometry } from 'geojson';
 import './styles.scss';
+import { scaleThreshold } from 'd3';
 
 const WorldMap = <T extends object>({
   projection,
@@ -20,10 +21,10 @@ const WorldMap = <T extends object>({
     [topology, countries],
   );
 
-  const colorScale = useMemo(() => {
-    if (!data || !config) return null;
-    return getColorScale(data, config.valueField as string, blueRange);
-  }, [data, config]);
+  const colorScale = useMemo(
+    () => scaleThreshold<number, string>().domain(thresholds).range(colorRange),
+    [data, config],
+  );
 
   const dataMap = useMemo(() => (data ? getDataMap(data) : null), [data]);
 
@@ -42,9 +43,7 @@ const WorldMap = <T extends object>({
             ? dataItem[config.valueField]
             : undefined;
         const color =
-          colorScale && value !== undefined && value !== ''
-            ? colorScale(+value)
-            : '#d6d6d3';
+          value !== undefined && value !== '' ? colorScale(+value) : '#d6d6d3';
         return (
           <path
             className="marks"
@@ -58,7 +57,10 @@ const WorldMap = <T extends object>({
                   `${feature.properties?.name}: ${
                     value === undefined || value === ''
                       ? 'N/A'
-                      : '$' + Number(value).toFixed(2)
+                      : '$' +
+                        (config.valueFormatter
+                          ? config.valueFormatter(value)
+                          : value)
                   }`}
               </title>
             )}

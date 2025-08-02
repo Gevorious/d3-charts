@@ -1,5 +1,6 @@
 import { mesh } from 'topojson-client';
-import { max, min, scaleQuantize } from 'd3';
+import { max, min, scaleQuantize, scaleThreshold } from 'd3';
+import { thresholds } from './constants';
 
 export function getGeoData(topology: any, countries: any) {
   if (!topology || !countries) return null;
@@ -9,19 +10,6 @@ export function getGeoData(topology: any, countries: any) {
     (a: any, b: any) => a !== b,
   );
   return { countries, interiors };
-}
-
-export function getColorScale(
-  data: any[],
-  valueField: string,
-  colorRange: string[],
-) {
-  const values = data.map((d) => +d[valueField]).filter((v) => !isNaN(v));
-  if (!values.length) return null;
-
-  return scaleQuantize<string>()
-    .domain([min(values)!, max(values)!])
-    .range(colorRange);
 }
 
 export function getDataMap(data: any[]) {

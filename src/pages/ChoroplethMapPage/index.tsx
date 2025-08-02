@@ -4,11 +4,12 @@ import YearSlider from '../../components/YearSlider';
 import type { Topology } from 'topojson-specification';
 import { feature } from 'topojson-client';
 import { WorldGeoData } from '../../components/WorldMap/types';
-import { csv, DSVRowArray, geoNaturalEarth1 } from 'd3';
+import { csv, DSVRowArray, format, geoNaturalEarth1 } from 'd3';
 import WorldMap from '../../components/WorldMap';
 import { useEffect, useState } from 'react';
 import { choroplethConfig } from './config';
 import './styles.scss';
+import { customFormat } from './helpers';
 
 const { width, height, margins, yearRange } = choroplethConfig;
 
@@ -29,14 +30,14 @@ const ChoroplethMapPage = () => {
   );
 
   useEffect(() => {
-    csv('/charts/data/world_gdp_per_capita.csv').then((data) => {
+    csv('/charts/data/world_countries_gdp.csv').then((data) => {
       setData(data);
     });
   }, []);
 
   return (
     <div className="container-large">
-      <Card title="GDP per Capita(1975 - 2024)">
+      <Card title="GDP of Countries(1980 - 2030)">
         <div className="choropleth-map-page">
           <svg width={width} height={height}>
             <WorldMap
@@ -44,7 +45,11 @@ const ChoroplethMapPage = () => {
               topology={topology}
               countries={countries}
               data={data ?? []}
-              config={{ valueField: year?.toString()!, showTooltip: true }}
+              config={{
+                valueField: year?.toString()!,
+                showTooltip: true,
+                valueFormatter: customFormat,
+              }}
             />
             <YearSlider
               onChange={setYear}

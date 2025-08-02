@@ -6,5 +6,5 @@ export const choroplethConfig: ChoroplethConfig = {
   margins: {
     bottom: 50,
   },
-  yearRange: [1975, 2024],
+  yearRange: [1980, 2030],
 };

@@ -14,6 +14,7 @@ export type MapData<T> = {
     valueField: keyof T;
     tooltipText?: string;
     showTooltip?: boolean;
+    valueFormatter?: (value: number) => string;
   };
 };
 
