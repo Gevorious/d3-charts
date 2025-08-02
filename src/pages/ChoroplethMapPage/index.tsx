@@ -1,14 +1,14 @@
 import worldAtlas from 'world-atlas/countries-110m.json';
+import Card from '../../components/Card';
+import YearSlider from '../../components/YearSlider';
 import type { Topology } from 'topojson-specification';
 import { feature } from 'topojson-client';
 import { WorldGeoData } from '../../components/WorldMap/types';
 import { csv, DSVRowArray, geoNaturalEarth1 } from 'd3';
 import WorldMap from '../../components/WorldMap';
 import { useEffect, useState } from 'react';
-import YearSlider from '../../components/YearSlider';
 import { choroplethConfig } from './config';
 import './styles.scss';
-import Card from '@/components/Card';
 
 const { width, height, margins, yearRange } = choroplethConfig;
 
