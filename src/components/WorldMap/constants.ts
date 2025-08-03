@@ -57,5 +57,5 @@ export const thresholds = [
   ...Array.from(
     { length: 20 },
     (_, i) => 1_000_000_000_000 + i * 2_000_000_000_000,
-  ), // 2.4T steps
+  ), // 2T steps
 ];
