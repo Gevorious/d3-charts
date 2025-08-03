@@ -53,9 +53,6 @@ export const colorRange = [
 ];
 
 export const thresholds = [
-  ...Array.from({ length: 29 }, (_, i) => (i + 1) * 25_000_000_000), // 25B steps
-  ...Array.from(
-    { length: 20 },
-    (_, i) => 1_000_000_000_000 + i * 2_000_000_000_000,
-  ), // 2T steps
+  ...Array.from({ length: 29 }, (_, i) => (i + 1) * 25e9), // 25B steps
+  ...Array.from({ length: 20 }, (_, i) => 1e12 + i * 2e12), // 2T steps
 ];
