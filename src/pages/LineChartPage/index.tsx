@@ -5,8 +5,9 @@ import { MultiLineChart } from '../../components/Charts';
 import Card from '../../components/Card';
 import './styles.scss';
 
-const CRYPTO_URL =
-  'wss://wss.coincap.io/prices?assets=bitcoin,ethereum,monero,litecoin,dogecoin';
+const CRYPTO_URL = `wss://wss.coincap.io/prices?assets=bitcoin,ethereum,monero,litecoin,dogecoin&apiKey=${
+  import.meta.env.VITE_API_KEY
+}`;
 
 const LineChartPage = () => {
   const [prices, setPrices] = useState<PricesByAsset>({
