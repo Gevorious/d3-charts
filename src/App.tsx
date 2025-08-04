@@ -4,6 +4,7 @@ import BarChartPage from './pages/BarChartPage';
 import BubbleMapPage from './pages/BubbleMapPage';
 import Layout from './components/Layout';
 import ChoroplethMapPage from './pages/ChoroplethMapPage';
+import LineChartPage from './pages/LineChartPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/bar-chart" element={<BarChartPage />} />
           <Route path="/bubble-map" element={<BubbleMapPage />} />
           <Route path="/choropleth-map" element={<ChoroplethMapPage />} />
+          <Route path="/line-chart" element={<LineChartPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>

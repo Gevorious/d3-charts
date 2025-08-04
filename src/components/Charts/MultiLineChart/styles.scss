@@ -1,0 +1,20 @@
+.tick {
+  stroke: #cccbcb;
+}
+
+.line-toggle {
+  cursor: pointer;
+
+  &__icon {
+    display: block;
+  }
+
+  &__label {
+    font-size: 0.875rem;
+    color: #333;
+  }
+
+  &:hover .line-toggle__label {
+    color: #000;
+  }
+}

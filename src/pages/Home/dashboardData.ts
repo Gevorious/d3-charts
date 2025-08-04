@@ -6,7 +6,7 @@ export const dashboardItems = [
     url: '/bubble-map',
   },
   {
-    title: 'Population Chart',
+    title: 'Country Population - Bar Chart',
     description: 'Compare populations of countries',
     icon: 'barChart',
     url: '/bar-chart',
@@ -16,5 +16,11 @@ export const dashboardItems = [
     description: 'Explore world countries GDP per capita on a choropleth map',
     icon: 'globeEurope',
     url: '/choropleth-map',
+  },
+  {
+    title: 'Crypto Real Time Prices - Line Chart',
+    description: 'Live updating line chart of crypto currency prices',
+    icon: 'lineChart',
+    url: '/line-chart',
   },
 ];
