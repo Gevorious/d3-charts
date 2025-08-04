@@ -3,6 +3,7 @@
     { "name": "Home", "path": "/" },
     { "name": "Bar Chart", "path": "/bar-chart" },
     { "name": "Bubble Map", "path": "/bubble-map" },
-    { "name": "Choropleth Map", "path": "/choropleth-map" }
+    { "name": "Choropleth Map", "path": "/choropleth-map" },
+    { "name": "Multiline Chart", "path": "/line-chart" }
   ]
 }
