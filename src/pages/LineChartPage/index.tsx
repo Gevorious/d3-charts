@@ -43,7 +43,7 @@ const LineChartPage = () => {
 
   return (
     <div className="container">
-      <Card title="Real Time Crypto Currency Prices">
+      <Card title="Real Time Crypto Currency Rates">
         <MultiLineChart data={prices} width={1100} />
       </Card>
     </div>
