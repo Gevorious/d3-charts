@@ -26,8 +26,8 @@ const LineChartPage = () => {
           const newEntry = { time: Date.now(), price: data[key as CryptoType] };
           const updatedArray = [...next[asset], newEntry];
           next[asset] =
-            updatedArray.length > 500
-              ? updatedArray.slice(updatedArray.length - 500)
+            updatedArray.length > 100
+              ? updatedArray.slice(updatedArray.length - 100)
               : updatedArray;
         }
         return next;
