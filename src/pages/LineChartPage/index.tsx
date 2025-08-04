@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { webSocketHandler } from './websocket';
 import { CryptoType, PricesByAsset, SocketData } from './types';
+import { useResizeObserver } from '@/hooks/useResizeObserver';
 import { MultiLineChart } from '../../components/Charts';
 import Card from '../../components/Card';
 import './styles.scss';
@@ -16,6 +17,8 @@ const LineChartPage = () => {
     ['BNB/USDT']: [],
     ['SOL/USDT']: [],
   });
+
+  const [containerRef, dimensions] = useResizeObserver<HTMLDivElement>();
 
   useEffect(() => {
     const socket = webSocketHandler(CRYPTO_URL, (data: SocketData) => {
@@ -44,7 +47,11 @@ const LineChartPage = () => {
   return (
     <div className="container">
       <Card title="Real Time Crypto Currency Rates">
-        <MultiLineChart data={prices} width={1100} />
+        <div ref={containerRef} style={{ width: '100%', height: 'auto' }}>
+          {dimensions && (
+            <MultiLineChart data={prices} width={dimensions.width} />
+          )}
+        </div>
       </Card>
     </div>
   );

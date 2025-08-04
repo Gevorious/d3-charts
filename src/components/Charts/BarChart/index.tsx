@@ -4,8 +4,8 @@ import BottomAxis from './_partials/BottomAxis';
 import LeftAxis from './_partials/LeftAxis';
 import { getScales } from './scales';
 import type { BarChartProps } from './types';
-import './styles.scss';
 import Filter from './_partials/Filter';
+import './styles.scss';
 
 const margins = { bottom: 60, top: 20, left: 40, right: 40 };
 
