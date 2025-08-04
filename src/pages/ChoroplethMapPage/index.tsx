@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import { choroplethConfig } from './config';
 import './styles.scss';
 import { customFormat } from './helpers';
+import { useResizeObserver } from '@/hooks/useResizeObserver';
 
 const { width, height, margins, yearRange } = choroplethConfig;
 
@@ -18,16 +19,16 @@ const innerHeight = height - (margins?.bottom || 0);
 const ChoroplethMapPage = () => {
   const [data, setData] = useState<DSVRowArray<string>>();
   const [year, setYear] = useState<number>(yearRange[1]);
+  const [containerRef, dimensions] = useResizeObserver<HTMLDivElement>();
 
   const topology = worldAtlas as unknown as Topology;
   const countries = feature(
     topology,
     topology.objects.countries,
   ) as WorldGeoData['countries'];
-  const projection = geoNaturalEarth1().fitSize(
-    [width, innerHeight],
-    countries,
-  );
+  const projection =
+    dimensions &&
+    geoNaturalEarth1().fitSize([dimensions.width, innerHeight], countries);
 
   useEffect(() => {
     csv('/charts/data/world_countries_gdp.csv').then((data) => {
@@ -38,27 +39,29 @@ const ChoroplethMapPage = () => {
   return (
     <div className="container-large">
       <Card title="GDP of Countries(1980 - 2030)">
-        <div className="choropleth-map-page">
-          <svg width={width} height={height}>
-            <WorldMap
-              projection={projection}
-              topology={topology}
-              countries={countries}
-              data={data ?? []}
-              config={{
-                valueField: year?.toString()!,
-                showTooltip: true,
-                valueFormatter: customFormat,
-              }}
-            />
-            <YearSlider
-              onChange={setYear}
-              height={height - 20}
-              width={width}
-              yearRange={yearRange}
-              year={year || yearRange[1]}
-            />
-          </svg>
+        <div ref={containerRef} className="choropleth-map-page">
+          {dimensions && (
+            <svg width={dimensions.width} height={height}>
+              <WorldMap
+                projection={projection!}
+                topology={topology}
+                countries={countries}
+                data={data ?? []}
+                config={{
+                  valueField: year?.toString()!,
+                  showTooltip: true,
+                  valueFormatter: customFormat,
+                }}
+              />
+              <YearSlider
+                onChange={setYear}
+                height={height - 20}
+                width={dimensions.width}
+                yearRange={yearRange}
+                year={year || yearRange[1]}
+              />
+            </svg>
+          )}
         </div>
       </Card>
     </div>
