@@ -51,24 +51,20 @@ const MultiLineChart = ({
         className="line-toggle"
       >
         {Object.entries(data).map(([key], i) => (
-          <g
+          <LineToggle
             key={key}
             transform={`translate(0, ${i * 30})`}
-            className="line-toggle__icon"
-          >
-            <LineToggle
-              label={key}
-              color={colorMap[key]}
-              onChange={() =>
-                setVisibleLines((prev) =>
-                  prev.includes(key)
-                    ? prev.filter((line) => line !== key)
-                    : [...prev, key],
-                )
-              }
-              checked={visibleLines.includes(key)}
-            />
-          </g>
+            label={key}
+            color={colorMap[key]}
+            onChange={() =>
+              setVisibleLines((prev) =>
+                prev.includes(key)
+                  ? prev.filter((line) => line !== key)
+                  : [...prev, key],
+              )
+            }
+            checked={visibleLines.includes(key)}
+          />
         ))}
       </g>
       <g transform={`translate(${margin.left},${margin.top})`}>

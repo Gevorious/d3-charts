@@ -37,6 +37,7 @@ export type LineToggleProps = {
   color: string;
   checked: boolean;
   onChange: () => void;
+  transform: string;
 };
 
 export type MarksProps = {

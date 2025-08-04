@@ -10,11 +10,26 @@
   }
 
   &__label {
-    font-size: 0.875rem;
-    color: #333;
+    letter-spacing: 1px;
+    font-size: 0.75rem;
+    fill: #5c5b5b;
+    transition: fill 0.2s ease;
   }
 
-  &:hover .line-toggle__label {
-    color: #000;
+  &__icon.checked {
+    .line-toggle__label {
+      fill: #000;
+      font-weight: 600;
+    }
+
+    line {
+      stroke-opacity: 1;
+    }
+  }
+
+  &__icon:not(.checked) {
+    line {
+      stroke-opacity: 0.2;
+    }
   }
 }

@@ -1,19 +1,29 @@
 import { LineToggleProps } from '../types';
 
-const LineToggle = ({ label, color, checked, onChange }: LineToggleProps) => {
+const LineToggle = ({
+  label,
+  color,
+  checked,
+  onChange,
+  transform,
+}: LineToggleProps) => {
   return (
-    <g onClick={onChange}>
-      <text x="45" y="9" fontSize="14" fill="#333">
+    <g
+      onClick={onChange}
+      className={`line-toggle__icon ${checked ? 'checked' : ''}`}
+      transform={transform}
+    >
+      <rect x="0" y="0" width="70" height="20" fill="transparent" />
+      <text x="48" y="9" className="line-toggle__label">
         {label}
       </text>
-      <rect x="0" y="4" width="40" height="4" fill="#eee" rx="2" />
       <line
         x1="2"
         y1="6"
-        x2="38"
+        x2="40"
         y2="6"
         stroke={color}
-        strokeWidth="2"
+        strokeWidth="4"
         strokeLinecap="round"
       />
     </g>
