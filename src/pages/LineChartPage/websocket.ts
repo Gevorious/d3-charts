@@ -1,7 +1,7 @@
 import { SocketData } from './types';
 
 let lastUpdate = 0;
-const throttleDelay = 2000;
+const throttleDelay = 1000;
 let socket: WebSocket | null = null;
 
 export const webSocketHandler = (
@@ -19,11 +19,10 @@ export const webSocketHandler = (
   socket.onmessage = (event) => {
     const now = Date.now();
     if (now - lastUpdate < throttleDelay) return;
-
-    lastUpdate = now;
     const data = JSON.parse(event.data);
-    const [asset, priceStr] = Object.entries(data)[0];
-    update({ [asset]: parseFloat(priceStr as string) } as SocketData);
+    lastUpdate = now;
+    const { p, s } = data.data;
+    update({ [s]: parseFloat(p as string) } as SocketData);
   };
 
   socket.onerror = (err) => {
