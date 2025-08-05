@@ -1,9 +1,9 @@
 export type CryptoType =
   | 'BTC/USDT'
   | 'ETH/USDT'
-  | 'AVAX/USDT'
   | 'BNB/USDT'
-  | 'SOL/USDT';
+  | 'SOL/USDT'
+  | 'XRP/USDT';
 
 export type SocketData = {
   [key in CryptoType]: number;

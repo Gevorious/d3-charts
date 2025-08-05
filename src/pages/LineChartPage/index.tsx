@@ -7,13 +7,13 @@ import Card from '../../components/Card';
 import './styles.scss';
 
 const CRYPTO_URL =
-  'wss://stream.binance.com:9443/stream?streams=btcusdt@trade/ethusdt@trade/avaxusdt@trade/bnbusdt@trade/solusdt@trade';
+  'wss://stream.binance.com:9443/stream?streams=btcusdt@trade/ethusdt@trade/xrpusdt@trade/bnbusdt@trade/solusdt@trade';
 
 const LineChartPage = () => {
   const [prices, setPrices] = useState<PricesByAsset>({
     ['BTC/USDT']: [],
     ['ETH/USDT']: [],
-    ['AVAX/USDT']: [],
+    ['XRP/USDT']: [],
     ['BNB/USDT']: [],
     ['SOL/USDT']: [],
   });
