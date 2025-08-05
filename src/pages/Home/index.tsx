@@ -2,6 +2,7 @@ import DashboardCard from '../../components/DashboardCard';
 import {
   FaChartBar,
   FaChartLine,
+  FaChartPie,
   FaGlobeEurope,
   FaMapMarkedAlt,
 } from 'react-icons/fa';
@@ -13,6 +14,7 @@ const icons = {
   barChart: <FaChartBar size={32} />,
   globeEurope: <FaGlobeEurope size={32} />,
   lineChart: <FaChartLine size={32} />,
+  pieChart: <FaChartPie size={32} />,
 };
 
 const Home = () => {

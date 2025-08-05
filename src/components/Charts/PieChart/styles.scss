@@ -1,0 +1,13 @@
+.toggle {
+  letter-spacing: 1px;
+  cursor: pointer;
+
+  &:hover text {
+    fill: #000;
+    font-weight: 500;
+  }
+
+  &.checked {
+    opacity: 0.2;
+  }
+}

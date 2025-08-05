@@ -18,9 +18,15 @@ export const dashboardItems = [
     url: '/choropleth-map',
   },
   {
-    title: 'Crypto Real Time Prices - Line Chart',
+    title: 'Crypto Real Time Prices - Multi Line Chart',
     description: 'Live updating line chart of crypto currency prices',
     icon: 'lineChart',
     url: '/line-chart',
+  },
+  {
+    title: 'Crypto Real Time Prices - Pie Chart',
+    description: 'Live updating line chart of crypto currency prices',
+    icon: 'pieChart',
+    url: '/pie-chart',
   },
 ];

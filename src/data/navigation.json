@@ -4,6 +4,7 @@
     { "name": "Bar Chart", "path": "/bar-chart" },
     { "name": "Bubble Map", "path": "/bubble-map" },
     { "name": "Choropleth Map", "path": "/choropleth-map" },
-    { "name": "Multiline Chart", "path": "/line-chart" }
+    { "name": "Multiline Chart", "path": "/line-chart" },
+    { "name": "Pie Chart", "path": "/pie-chart" }
   ]
 }
