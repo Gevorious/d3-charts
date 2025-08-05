@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { webSocketHandler } from './websocket';
 import { CryptoType, PricesByAsset, SocketData } from './types';
-import { useResizeObserver } from '@/hooks/useResizeObserver';
+import { useResizeObserver } from '../../hooks/useResizeObserver';
 import { MultiLineChart } from '../../components/Charts';
 import Card from '../../components/Card';
 import './styles.scss';

@@ -5,10 +5,10 @@ import WorldMap from '../../components/WorldMap';
 import type { Topology } from 'topojson-specification';
 import { feature } from 'topojson-client';
 import { WorldGeoData } from '../../components/WorldMap/types';
-import { csv, DSVRowArray, format, geoNaturalEarth1 } from 'd3';
+import { csv, DSVRowArray, geoNaturalEarth1 } from 'd3';
 import { useEffect, useState } from 'react';
 import { choroplethConfig } from './config';
-import { useResizeObserver } from '@/hooks/useResizeObserver';
+import { useResizeObserver } from '../../hooks/useResizeObserver';
 import { customFormat } from './helpers';
 import './styles.scss';
 

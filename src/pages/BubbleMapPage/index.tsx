@@ -7,7 +7,7 @@ import type { Topology } from 'topojson-specification';
 import { feature } from 'topojson-client';
 import { WorldGeoData } from '../../components/WorldMap/types';
 import { bubbleMapConfig } from './config';
-import { useResizeObserver } from '@/hooks/useResizeObserver';
+import { useResizeObserver } from '../../hooks/useResizeObserver';
 import './styles.scss';
 
 const { width, height, margins } = bubbleMapConfig;
