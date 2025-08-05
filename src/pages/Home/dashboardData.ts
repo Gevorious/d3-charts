@@ -24,8 +24,9 @@ export const dashboardItems = [
     url: '/line-chart',
   },
   {
-    title: 'Crypto Real Time Prices - Pie Chart',
-    description: 'Live updating line chart of crypto currency prices',
+    title: 'Internet Users By Region - Pie Chart',
+    description:
+      'World internet users amount by different regions on interactive pie chart',
     icon: 'pieChart',
     url: '/pie-chart',
   },
