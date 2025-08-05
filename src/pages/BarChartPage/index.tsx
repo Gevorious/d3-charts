@@ -1,15 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BarChart } from '../../components/Charts';
 import { CountryFilter } from '../../components/Charts/BarChart';
 import Card from '../../components/Card';
 import type { CountryData } from '../../components/Charts/BarChart/types';
 import { useResizeObserver } from '../../hooks/useResizeObserver';
-import { ascending, descending } from 'd3';
+import { ascending, descending, json } from 'd3';
 import { SortIcon } from '../../components/SortIcon';
-import chartData from './chartData/bar_chart_data.json';
 import './styles.scss';
-
-const { countries }: { countries: CountryData[] } = chartData;
 
 const sortBy = {
   asc: ascending,
@@ -22,12 +19,19 @@ const sortByLabel = {
 };
 
 const BarChartPage = () => {
-  const [data, setData] = useState<CountryData[]>(countries);
+  const [data, setData] = useState<CountryData[]>([]);
   const [containerRef, dimensions] = useResizeObserver<HTMLDivElement>();
   const [sortingType, setSortingType] = useState<'asc' | 'desc' | null>(null);
-  const [selected, setSelected] = useState<string[]>(
-    countries.map((d) => d.country),
-  );
+  const [selected, setSelected] = useState<string[]>([]);
+
+  useEffect(() => {
+    json<{ countries: CountryData[] }>(
+      '/charts/data/population_by_country.json',
+    ).then((res) => {
+      setData(res!.countries);
+      setSelected(res!.countries.map((d) => d.country));
+    });
+  }, []);
 
   const sortedData = sortingType
     ? data.sort((a, b) => sortBy[sortingType](a.population, b.population))
