@@ -42,7 +42,7 @@ const PieChart = <T,>({
 
   return (
     <svg width={width} height={height}>
-      <g transform={`translate(${width / 2 - 150}, ${height / 2})`}>
+      <g transform={`translate(${radius + 50}, ${height / 2})`}>
         {arcs.map((arcDatum, i) => {
           const percentage = ((arcDatum.value / total) * 100).toFixed(1);
           const key = String(arcDatum.data[keyField]);
@@ -67,7 +67,7 @@ const PieChart = <T,>({
           );
         })}
       </g>
-      <g transform={`translate(${width - 200}, 20)`}>
+      <g transform={`translate(${width - 250}, 20)`}>
         {data.map((item, i) => {
           const iconSize = (height - 60) / data.length / 1.2;
           const key = String(item[keyField]);
