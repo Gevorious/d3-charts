@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { PieChartProps } from './types';
 import Arc from './_partials/Arcs';
 import ListItem from './_partials/ListItem';
-import './styles.scss';
 import { PIE_COLORS } from './_constants';
+import './styles.scss';
 
 const PieChart = <T,>({
   data,
@@ -22,7 +22,7 @@ const PieChart = <T,>({
     visibleItems.includes(item[keyField] as string),
   );
 
-  const radius = Math.min(width, height) / 2.2;
+  const radius = Math.min(width, height) / 2.1;
 
   const pieObject = pie<T>().value((d) => +d[valueField]);
   const arcEl = arc<PieArcDatum<T>>().innerRadius(0).outerRadius(radius);
@@ -38,12 +38,11 @@ const PieChart = <T,>({
   });
 
   const arcs = pieObject(filteredData);
-
   const total = sum(arcs, (d) => d.value);
 
   return (
     <svg width={width} height={height}>
-      <g transform={`translate(${width / 2.5}, ${height / 2})`}>
+      <g transform={`translate(${width / 2 - 150}, ${height / 2})`}>
         {arcs.map((arcDatum, i) => {
           const percentage = ((arcDatum.value / total) * 100).toFixed(1);
           const key = String(arcDatum.data[keyField]);
@@ -68,15 +67,15 @@ const PieChart = <T,>({
           );
         })}
       </g>
-      <g transform={`translate(${width - 300}, 0)`}>
+      <g transform={`translate(${width - 200}, 20)`}>
         {data.map((item, i) => {
-          const iconSize = (height - 30) / data.length / 1.1;
+          const iconSize = (height - 60) / data.length / 1.2;
           const key = String(item[keyField]);
 
           return (
             <g
               key={key}
-              transform={`translate(0, ${i * iconSize * 1.1})`}
+              transform={`translate(0, ${i * iconSize * 1.2})`}
               onMouseEnter={() => setHoveredKey(key)}
               onMouseLeave={() => setHoveredKey(null)}
             >
