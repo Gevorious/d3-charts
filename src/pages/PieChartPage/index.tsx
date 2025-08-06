@@ -16,14 +16,14 @@ const PieChartPage = () => {
   return (
     <div className="container">
       <Card title="Internat Users Share By Region">
-        {data.length && (
+        {data.length ? (
           <PieChart
             data={data}
             keyField="region"
             width={1100}
             valueField="internet_users"
           />
-        )}
+        ) : null}
       </Card>
     </div>
   );
