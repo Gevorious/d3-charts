@@ -56,6 +56,8 @@ const PieChart = <T,>({
               key={key}
               transform={`translate(${dx}, ${dy})`}
               style={{ transition: 'transform 0.2s ease' }}
+              onMouseEnter={() => setHoveredKey(key)}
+              onMouseLeave={() => setHoveredKey(null)}
             >
               <Arc
                 arc={arcEl}
