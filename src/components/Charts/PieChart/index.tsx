@@ -40,6 +40,15 @@ const PieChart = <T,>({
   const arcs = pieObject(filteredData);
   const total = sum(arcs, (d) => d.value);
 
+  const onHover = (key?: string) => {
+    if (filteredData.length <= 1) {
+      setHoveredKey(null);
+      return;
+    }
+
+    setHoveredKey(key || null);
+  };
+
   return (
     <svg width={width} height={height}>
       <g transform={`translate(${radius + 50}, ${height / 2})`}>
@@ -55,9 +64,9 @@ const PieChart = <T,>({
             <g
               key={key}
               transform={`translate(${dx}, ${dy})`}
-              style={{ transition: 'transform 0.2s ease' }}
-              onMouseEnter={() => setHoveredKey(key)}
-              onMouseLeave={() => setHoveredKey(null)}
+              style={{ transition: 'transform 0.2s ease-in-out' }}
+              onMouseEnter={() => onHover(key)}
+              onMouseLeave={() => onHover()}
             >
               <Arc
                 arc={arcEl}
@@ -78,8 +87,8 @@ const PieChart = <T,>({
             <g
               key={key}
               transform={`translate(0, ${i * iconSize * 1.2})`}
-              onMouseEnter={() => setHoveredKey(key)}
-              onMouseLeave={() => setHoveredKey(null)}
+              onMouseEnter={() => onHover(key)}
+              onMouseLeave={() => onHover()}
             >
               <ListItem
                 onClick={() =>
