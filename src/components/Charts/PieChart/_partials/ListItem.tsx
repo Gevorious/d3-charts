@@ -1,15 +1,7 @@
 import { format } from 'd3';
+import { ListItemProps } from '../types';
 
 const gap = 8;
-
-type ListItemProps = {
-  name: string;
-  value: number;
-  color: string;
-  iconSize?: number;
-  onClick: () => void;
-  checked: boolean;
-};
 
 const ListItem = ({
   name,

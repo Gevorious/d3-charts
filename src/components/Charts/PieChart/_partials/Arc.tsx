@@ -1,11 +1,4 @@
-import { Arc, PieArcDatum } from 'd3';
-
-type ArcProps<T> = {
-  arc: Arc<any, PieArcDatum<T>>;
-  arcDatum: PieArcDatum<T>;
-  color: string;
-  title: string;
-};
+import { ArcProps } from '../types';
 
 const Arc = <T,>({ arc, arcDatum, color, title }: ArcProps<T>) => {
   return (
