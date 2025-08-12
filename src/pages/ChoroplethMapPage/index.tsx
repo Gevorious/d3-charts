@@ -38,8 +38,8 @@ const ChoroplethMapPage = () => {
 
   return (
     <div className="container-large">
-      <Card title="GDP of Countries(1980 - 2030)">
-        <FullscreenBox fullScreenScale={1.2}>
+      <FullscreenBox fullScreenScale={1.2}>
+        <Card title="GDP of Countries(1980 - 2030)">
           <div className="choropleth-map-page">
             <svg width={width} height={height}>
               <WorldMap
@@ -62,8 +62,8 @@ const ChoroplethMapPage = () => {
               />
             </svg>
           </div>
-        </FullscreenBox>
-      </Card>
+        </Card>
+      </FullscreenBox>
     </div>
   );
 };

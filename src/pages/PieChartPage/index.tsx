@@ -16,8 +16,8 @@ const PieChartPage = () => {
 
   return (
     <div className="container">
-      <Card title="Internat Users Share By Region">
-        <FullscreenBox fullScreenScale={1.2}>
+      <FullscreenBox fullScreenScale={1.2}>
+        <Card title="Internat Users Share By Region">
           {data.length ? (
             <PieChart
               data={data}
@@ -25,8 +25,8 @@ const PieChartPage = () => {
               valueField="internet_users"
             />
           ) : null}
-        </FullscreenBox>
-      </Card>
+        </Card>
+      </FullscreenBox>
     </div>
   );
 };

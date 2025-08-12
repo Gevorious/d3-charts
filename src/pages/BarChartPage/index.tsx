@@ -38,8 +38,8 @@ const BarChartPage = () => {
 
   return (
     <div className="container">
-      <Card title="Population by Country">
-        <FullscreenBox fullScreenScale={1.2}>
+      <FullscreenBox fullScreenScale={1.2}>
+        <Card title="Population by Country">
           <div className="bar-chart">
             <div style={{ width: '100%', height: 'auto' }}>
               <BarChart data={sortedData} selected={selected} />
@@ -73,8 +73,8 @@ const BarChartPage = () => {
               />
             </div>
           </div>
-        </FullscreenBox>
-      </Card>
+        </Card>
+      </FullscreenBox>
     </div>
   );
 };

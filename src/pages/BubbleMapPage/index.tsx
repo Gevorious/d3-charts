@@ -27,8 +27,8 @@ const BubbleMapPage = () => {
 
   return (
     <div className="container-large">
-      <Card title="GDP per Capita(1975 - 2024)">
-        <FullscreenBox fullScreenScale={1.2}>
+      <FullscreenBox fullScreenScale={1.2}>
+        <Card title="GDP per Capita(1975 - 2024)">
           <div className="bubble-map-page">
             <svg width={width} height={height}>
               <WorldMap
@@ -44,8 +44,8 @@ const BubbleMapPage = () => {
               />
             </svg>
           </div>
-        </FullscreenBox>
-      </Card>
+        </Card>
+      </FullscreenBox>
     </div>
   );
 };
