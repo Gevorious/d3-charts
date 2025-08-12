@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
 import { webSocketHandler } from './websocket';
-import { CryptoType, PricesByAsset, SocketData } from './types';
-import { useResizeObserver } from '../../hooks/useResizeObserver';
-import { MultiLineChart } from '../../components/Charts';
 import Card from '../../components/Card';
+import FullscreenBox from '../../components/FullscreenBox';
+import { CryptoType, PricesByAsset, SocketData } from './types';
+import { MultiLineChart } from '../../components/Charts';
+import { config } from './config';
 import './styles.scss';
+
+const { width } = config;
 
 const CRYPTO_URL =
   'wss://stream.binance.com:9443/stream?streams=btcusdt@trade/ethusdt@trade/xrpusdt@trade/bnbusdt@trade/solusdt@trade';
@@ -17,8 +20,6 @@ const LineChartPage = () => {
     ['BNB/USDT']: [],
     ['SOL/USDT']: [],
   });
-
-  const [containerRef, dimensions] = useResizeObserver<HTMLDivElement>();
 
   useEffect(() => {
     const socket = webSocketHandler(CRYPTO_URL, (data: SocketData) => {
@@ -47,11 +48,11 @@ const LineChartPage = () => {
   return (
     <div className="container">
       <Card title="Real Time Crypto Currency Rates">
-        <div ref={containerRef} style={{ width: '100%', height: 'auto' }}>
-          {dimensions && (
-            <MultiLineChart data={prices} width={dimensions.width} />
-          )}
-        </div>
+        <FullscreenBox fullScreenScale={1.2}>
+          <div style={{ width: '100%', height: 'auto' }}>
+            <MultiLineChart data={prices} width={width} />
+          </div>
+        </FullscreenBox>
       </Card>
     </div>
   );

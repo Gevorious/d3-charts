@@ -1,0 +1,22 @@
+.fullscreen-box {
+  position: relative;
+
+  &:fullscreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    .content {
+      transform-origin: center;
+      transition: transform 0.2s ease;
+    }
+  }
+
+  .fullscreen-icon {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    cursor: pointer;
+  }
+}
