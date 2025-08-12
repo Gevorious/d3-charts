@@ -49,7 +49,7 @@ const LineChartPage = () => {
     <div className="container">
       <FullscreenBox fullScreenScale={1.2}>
         <Card title="Real Time Crypto Currency Rates">
-          <div style={{ width: '100%', height: 'auto' }}>
+          <div>
             <MultiLineChart data={prices} width={width} />
           </div>
         </Card>

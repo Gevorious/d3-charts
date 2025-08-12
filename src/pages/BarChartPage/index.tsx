@@ -41,7 +41,7 @@ const BarChartPage = () => {
       <FullscreenBox fullScreenScale={1.2}>
         <Card title="Population by Country">
           <div className="bar-chart">
-            <div style={{ width: '100%', height: 'auto' }}>
+            <div>
               <BarChart data={sortedData} selected={selected} />
             </div>
             <div className="chart-info">
