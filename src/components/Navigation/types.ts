@@ -1,4 +1,5 @@
 export type NavItem = {
   name: string;
-  path: string;
+  path?: string;
+  children?: NavItem[];
 };
