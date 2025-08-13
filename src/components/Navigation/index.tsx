@@ -33,9 +33,8 @@ const Navigation = () => {
             {hasChildren && (
               <div className={`dropdown ${openIndex === idx ? 'show' : ''}`}>
                 {children.map((child) => (
-                  <span className="dropdown-item">
+                  <span className="dropdown-item" key={child.name}>
                     <NavLink
-                      key={child.name}
                       to={child.path!}
                       className={({ isActive }) => (isActive ? 'active' : '')}
                     >
