@@ -67,6 +67,7 @@ export const usePieChart = <T>({
   };
 
   const onToggleItem = (key: string) => {
+    if (visibleItems.length < 3 && visibleItems.includes(key)) return;
     setVisibleItems((prev) =>
       prev.includes(key) ? prev.filter((item) => item !== key) : [...prev, key],
     );
