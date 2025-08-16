@@ -73,3 +73,20 @@ export type ChartLegendProps = {
     top?: number;
   };
 };
+
+export type ScalesProps<T> = {
+  data: T[];
+  config: {
+    width?: number;
+    height?: number;
+    margins?: {
+      left?: number;
+      top?: number;
+      bottom?: number;
+      right?: number;
+    };
+    valueKeys: (keyof T)[];
+    xKey: keyof T;
+  };
+  visibleData: (keyof T)[];
+};

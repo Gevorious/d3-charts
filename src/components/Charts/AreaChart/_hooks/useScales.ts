@@ -1,27 +1,11 @@
 import { extent, max, scaleLinear, scaleTime } from 'd3';
+import { ScalesProps } from '../types';
 
-export type ChartScalesProps<T> = {
-  data: T[];
-  config: {
-    width?: number;
-    height?: number;
-    margins?: {
-      left?: number;
-      top?: number;
-      bottom?: number;
-      right?: number;
-    };
-    valueKeys: (keyof T)[];
-    xKey: keyof T;
-  };
-  visibleData: (keyof T)[];
-};
-
-export const useChartScales = <T extends Record<string, any>>({
+export const useScales = <T extends Record<string, any>>({
   data,
   config,
   visibleData,
-}: ChartScalesProps<T>) => {
+}: ScalesProps<T>) => {
   const { width = 800, height = 600, margins, valueKeys, xKey } = config;
 
   const innerHeight = height - (margins?.top || 0) - (margins?.bottom || 0);

@@ -6,9 +6,8 @@ import {
   ChartContainer,
   AreaPaths,
   ChartLegend,
-  useChartScales,
 } from './_partials';
-import { useAreaChart } from './_hooks';
+import { useAreaChart, useScales } from './_hooks';
 import './styles.scss';
 
 const AreaChart = <T extends Record<string, any>>({
@@ -23,12 +22,11 @@ const AreaChart = <T extends Record<string, any>>({
     valueKeys,
     xKey,
   });
-  const { xScale, yScale, sortedValues, innerWidth, innerHeight } =
-    useChartScales({
-      data,
-      config,
-      visibleData,
-    });
+  const { xScale, yScale, sortedValues, innerWidth, innerHeight } = useScales({
+    data,
+    config,
+    visibleData,
+  });
 
   return (
     <ChartContainer width={width} height={height} margins={margins}>
