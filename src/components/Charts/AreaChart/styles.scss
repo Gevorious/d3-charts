@@ -3,3 +3,13 @@
   user-select: none;
   cursor: pointer;
 }
+
+.left-axis-title,
+.right-axis-title {
+  text-anchor: middle;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-style: italic;
+  fill: #807f7f;
+}

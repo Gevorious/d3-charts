@@ -1,7 +1,7 @@
 import { timeFormat } from 'd3';
 import { BottomAxisProps } from '../types';
 
-const BottomAxis = ({ xScale, height, width }: BottomAxisProps) => {
+const BottomAxis = ({ xScale, height, width, title }: BottomAxisProps) => {
   const xTicks = xScale.ticks(12);
   return (
     <>
@@ -14,6 +14,11 @@ const BottomAxis = ({ xScale, height, width }: BottomAxisProps) => {
           </text>
         </g>
       ))}
+      {title && (
+        <text x={width / 2} y={height + 40} className="right-axis-title">
+          {title}
+        </text>
+      )}
     </>
   );
 };

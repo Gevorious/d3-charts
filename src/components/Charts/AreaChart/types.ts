@@ -12,6 +12,8 @@ export type Configs<T> = {
     bottom?: number;
     right?: number;
   };
+  yAxisTitle?: string;
+  xAxisTitle?: string;
 };
 
 export type AreaPathsProps<T> = {
@@ -43,12 +45,14 @@ export type BottomAxisProps = {
   xScale: ScaleTime<number, number>;
   height: number;
   width: number;
+  title?: string;
 };
 
 export type LeftAxisProps = {
   yScale: ScaleLinear<number, number>;
   height: number;
   width: number;
+  title?: string;
 };
 
 export type ChartContainerProps = {

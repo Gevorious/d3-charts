@@ -7,8 +7,9 @@ export const config: Configs<StockRow> = {
   valueKeys: ['SP500', 'Dividend', 'Earnings', 'Real Price'],
   xKey: 'Date',
   margins: {
-    left: 60,
-    bottom: 50,
+    left: 90,
+    bottom: 80,
     right: 200,
   },
+  yAxisTitle: 'Stock price in USD',
 };

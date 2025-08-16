@@ -15,7 +15,15 @@ const AreaChart = <T extends Record<string, any>>({
   config,
   timeLegends,
 }: AreaChartProps<T>) => {
-  const { width = 800, height = 600, margins, valueKeys, xKey } = config;
+  const {
+    width = 800,
+    height = 600,
+    margins,
+    valueKeys,
+    xKey,
+    xAxisTitle,
+    yAxisTitle,
+  } = config;
   const { range, handler, active } = timeLegends;
 
   const { visibleData, colorMap, toggle } = useAreaChart(data, {
@@ -47,8 +55,18 @@ const AreaChart = <T extends Record<string, any>>({
         margins={margins}
       />
 
-      <LeftAxis yScale={yScale} width={innerWidth} height={innerHeight} />
-      <BottomAxis xScale={xScale} height={innerHeight} width={innerWidth} />
+      <LeftAxis
+        yScale={yScale}
+        width={innerWidth}
+        height={innerHeight}
+        title={yAxisTitle}
+      />
+      <BottomAxis
+        xScale={xScale}
+        height={innerHeight}
+        width={innerWidth}
+        title={xAxisTitle}
+      />
 
       <TimeLegend
         active={active}
