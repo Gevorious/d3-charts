@@ -1,13 +1,8 @@
-import { SocketData } from './types';
-
 let lastUpdate = 0;
 const throttleDelay = 1000;
 let socket: WebSocket | null = null;
 
-export const webSocketHandler = (
-  url: string,
-  update: (data: SocketData) => void,
-) => {
+export const webSocketHandler = (url: string, update: (data: any) => void) => {
   if (socket) return socket;
 
   socket = new WebSocket(url);
@@ -22,7 +17,7 @@ export const webSocketHandler = (
     const data = JSON.parse(event.data);
     lastUpdate = now;
     const { p, s } = data.data;
-    update({ [s]: parseFloat(p as string) } as SocketData);
+    update({ [s]: parseFloat(p as string) });
   };
 
   socket.onerror = (err) => {

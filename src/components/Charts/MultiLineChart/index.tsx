@@ -6,13 +6,12 @@ import Lines from './_partials/Lines';
 import { MultiLineChartProps } from './types';
 import LineToggle from './_partials/LIneToggle';
 import Marks from './_partials/Marks';
-import { useColorMap } from './_hooks/useColorMap';
+import { useColorMap } from '../../../hooks/useColorMap';
 import { useScales } from './_hooks/useScales';
 import { useLines } from './_hooks/useLines';
 import './styles.scss';
 
 const margin = { top: 20, right: 240, bottom: 30, left: 60 };
-const defaultColors = schemeTableau10;
 
 const MultiLineChart = ({
   data,
@@ -33,7 +32,7 @@ const MultiLineChart = ({
     [filteredData],
   );
 
-  const colorMap = useColorMap(data, colors, defaultColors);
+  const colorMap = useColorMap(data, colors);
   const { xScale, yScale } = useScales(allPoints, innerWidth, innerHeight);
   const lines = useLines(filteredData, xScale, yScale, colorMap);
 

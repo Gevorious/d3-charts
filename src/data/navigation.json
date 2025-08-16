@@ -8,7 +8,8 @@
         { "name": "Bubble Map", "path": "/bubble-map" },
         { "name": "Choropleth Map", "path": "/choropleth-map" },
         { "name": "Multiline Chart", "path": "/line-chart" },
-        { "name": "Pie Chart", "path": "/pie-chart" }
+        { "name": "Pie Chart", "path": "/pie-chart" },
+        { "name": "Area Chart", "path": "/area-chart" }
       ]
     }
   ]

@@ -30,4 +30,10 @@ export const dashboardItems = [
     icon: 'pieChart',
     url: '/pie-chart',
   },
+  {
+    title: 'SP500 stocks - Area Chart',
+    description: 'SP500 stock market values on interactive pie chart',
+    icon: 'areaChart',
+    url: '/area-chart',
+  },
 ];

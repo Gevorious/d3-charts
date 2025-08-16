@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { webSocketHandler } from './websocket';
+import { webSocketHandler } from '../../sockets/cryptoPricesSocket';
 import Card from '../../components/Card';
 import FullscreenBox from '../../components/FullscreenBox';
-import { CryptoType, PricesByAsset, SocketData } from './types';
+import type { PricesByAsset, SocketData } from './types';
+import type { CryptoType } from '../../sockets/types';
 import { MultiLineChart } from '../../components/Charts';
 import { config } from './config';
 import './styles.scss';

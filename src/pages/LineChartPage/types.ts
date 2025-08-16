@@ -1,9 +1,4 @@
-export type CryptoType =
-  | 'BTC/USDT'
-  | 'ETH/USDT'
-  | 'BNB/USDT'
-  | 'SOL/USDT'
-  | 'XRP/USDT';
+import { CryptoType } from '../../sockets/types';
 
 export type SocketData = {
   [key in CryptoType]: number;

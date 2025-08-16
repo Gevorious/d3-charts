@@ -6,6 +6,7 @@ import Layout from './components/Layout';
 import ChoroplethMapPage from './pages/ChoroplethMapPage';
 import LineChartPage from './pages/LineChartPage';
 import PieChartPage from './pages/PieChartPage';
+import AreaChartPage from './pages/AreaChartPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/choropleth-map" element={<ChoroplethMapPage />} />
           <Route path="/line-chart" element={<LineChartPage />} />
           <Route path="/pie-chart" element={<PieChartPage />} />
+          <Route path="/area-chart" element={<AreaChartPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>

@@ -1,5 +1,6 @@
 import DashboardCard from '../../components/DashboardCard';
 import {
+  FaChartArea,
   FaChartBar,
   FaChartLine,
   FaChartPie,
@@ -15,6 +16,7 @@ const icons = {
   globeEurope: <FaGlobeEurope size={32} />,
   lineChart: <FaChartLine size={32} />,
   pieChart: <FaChartPie size={32} />,
+  areaChart: <FaChartArea size={32} />,
 };
 
 const Home = () => {
