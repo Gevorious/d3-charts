@@ -17,7 +17,7 @@ export const useScales = <T extends Record<string, any>>({
 
   const xScale = scaleTime().domain(xDomain).range([0, innerWidth]);
   const yScale = scaleLinear()
-    .domain([0, yMax + 1000])
+    .domain([0, yMax + 100])
     .range([innerHeight, 0]);
 
   const sortedValues = [...visibleData].sort((a, b) => {
