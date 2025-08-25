@@ -7,7 +7,7 @@ import { Feature, Geometry } from 'geojson';
 import { scaleThreshold } from 'd3';
 import './styles.scss';
 
-const WorldMap = <T extends object>({
+const WorldMap = <T extends Record<string, string>>({
   projection,
   countries,
   topology,

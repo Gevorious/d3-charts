@@ -43,10 +43,10 @@ const ChoroplethMapPage = () => {
           <div className="choropleth-map-page">
             <svg width={width} height={height}>
               <WorldMap
+                data={data ?? []}
                 projection={projection!}
                 topology={topology}
                 countries={countries}
-                data={data ?? []}
                 config={{
                   valueField: year?.toString()!,
                   showTooltip: true,
