@@ -1,11 +1,11 @@
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { geoPath, geoGraticule } from 'd3-geo';
 import { WorldMapProps } from './types';
 import { getGeoData, getDataMap } from './helpers';
 import { colorRange, thresholds } from './constants';
 import { Feature, Geometry } from 'geojson';
-import './styles.scss';
 import { scaleThreshold } from 'd3';
+import './styles.scss';
 
 const WorldMap = <T extends object>({
   projection,
@@ -72,4 +72,4 @@ const WorldMap = <T extends object>({
   );
 };
 
-export default WorldMap;
+export default React.memo(WorldMap);
