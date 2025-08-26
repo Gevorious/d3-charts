@@ -42,24 +42,28 @@ const ChoroplethMapPage = () => {
         <Card title="GDP of Countries(1980 - 2030)">
           <div className="choropleth-map-page">
             <svg width={width} height={height}>
-              <WorldMap
-                data={data ?? []}
-                projection={projection!}
-                topology={topology}
-                countries={countries}
-                config={{
-                  valueField: year?.toString()!,
-                  showTooltip: true,
-                  valueFormatter: customFormat,
-                }}
-              />
-              <YearSlider
-                onChange={setYear}
-                height={height - 20}
-                width={width}
-                yearRange={yearRange}
-                year={year || yearRange[1]}
-              />
+              {data && (
+                <>
+                  <WorldMap
+                    data={data ?? []}
+                    projection={projection!}
+                    topology={topology}
+                    countries={countries}
+                    config={{
+                      valueField: year?.toString()!,
+                      showTooltip: true,
+                      valueFormatter: customFormat,
+                    }}
+                  />
+                  <YearSlider
+                    onChange={setYear}
+                    height={height - 20}
+                    width={width}
+                    yearRange={yearRange}
+                    year={year || yearRange[1]}
+                  />
+                </>
+              )}
             </svg>
           </div>
         </Card>
