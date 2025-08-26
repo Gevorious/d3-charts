@@ -1,5 +1,4 @@
-import { schemeTableau10 } from 'd3';
-import { useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import BottomAxis from './_partials/BottomAxis';
 import LeftAxis from './_partials/LeftAxis';
 import Lines from './_partials/Lines';
@@ -91,4 +90,4 @@ const MultiLineChart = ({
   );
 };
 
-export default MultiLineChart;
+export default React.memo(MultiLineChart);
